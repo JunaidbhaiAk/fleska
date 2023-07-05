@@ -21,7 +21,8 @@ app.use(cors());
   try {
     sequelize.authenticate();
     sequelize.sync({alter:true})
-    await Dish.bulkCreate(parsedDummydata,{include:[Category,Size,SpecialContent,Menu]})
+    const check = await Dish.findByPk(1);
+    if(!check) await Dish.bulkCreate(parsedDummydata,{include:[Category,Size,SpecialContent,Menu]})
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }
