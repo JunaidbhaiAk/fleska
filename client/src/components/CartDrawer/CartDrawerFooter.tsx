@@ -27,10 +27,13 @@ const CartDrawerFooter = () => {
 
   const handleClick = async () => {
     const { items } = state;
-    const orderContent = items.map((ele: DishWithQty) => ({
+    const orderContent = items.map((ele: any) => ({
       dishId: ele.id,
       qty: ele.qty,
+      Sizes: {size:ele.selectedSize.size,price:ele.selectedSize.price},
+      SpecialContents: ele.SpecialContents.map((ele:any) => ({name:ele.name,price:ele.price}))
     }));
+    console.log(orderContent);
     const oid = await createOrder({ cid: 1, orderContent });
     api["success"]({
       message: "Order Confirmation",

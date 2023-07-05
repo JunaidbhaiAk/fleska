@@ -5,9 +5,12 @@ type Props = {
     name:string | undefined;
     price:string | undefined;
     qty:number;
+    sc:any;
+    scTotal:number;
 }
 
-const SummaryContent:FC<Props> = ({name='temp',price,qty}) => {
+const SummaryContent:FC<Props> = ({name='temp',price,qty,sc,scTotal}) => {
+
   return (
     <Space
       style={{ width: "100%", justifyContent: "space-between" }}
@@ -15,7 +18,10 @@ const SummaryContent:FC<Props> = ({name='temp',price,qty}) => {
     >
       <Typography.Text>{name}</Typography.Text>
       <Typography.Text>{`${price} x ${qty}`}</Typography.Text>
-      <Typography.Text strong>{`$${Number(price) * qty}`}</Typography.Text>
+      <Space direction="vertical">
+      {sc.map((ele:any) => <Typography.Text>{`${ele.name} - $${ele.price}`}</Typography.Text>)}
+      </Space>
+      <Typography.Text strong>{`$${(Number(price) + scTotal) * qty}`}</Typography.Text>
     </Space>
   );
 };

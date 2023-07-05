@@ -1,14 +1,16 @@
-import { DollarOutlined } from "@ant-design/icons";
-import { Avatar, Button, Divider, Input, List, Space,Typography } from "antd";
+
+import { Avatar, Button, Checkbox, Divider, Input, List, Space,Typography } from "antd";
+import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { cartActionType, CartContextType } from "../../utils/type";
+import { DishContext } from "../../context/DishContext";
+import { cartActionType, CartContextType, DishContextType } from "../../utils/type";
 
-const CartDrawerListItem = (props:any) => {
-  const {state} = useContext(CartContext) as CartContextType
-  const { item } = props;
+const CartDrawerListitm = (props:any) => {
+  
+  const { item,idx } = props;
   return (
-    <List.Item key={item.id} extra={<ItemExtra itm={item}/>}>
+    <List.Item key={item.id} extra={<IteamExtra itm={item}/>}>
       <List.Item.Meta
         avatar={
           <Avatar
@@ -17,21 +19,49 @@ const CartDrawerListItem = (props:any) => {
             shape="square"
           />
         }
-        title={item.name}
-        description={item.desc}
+        title={`${item.name} - ${item.selectedSize.size}`}
+        description={<Desc desc={item.desc} idx={idx} id={item.id} sizeId={item.selectedSize.id}/>}
       />
     </List.Item>
   );
 };
 
-const ItemExtra = (props:any) => {
-  const {itm} = props;
+const Desc = (props:any) => {
+  const {sizeId,id} = props;
+  const {dispatch} = useContext(CartContext) as CartContextType;
+  const {dishes} = useContext(DishContext) as DishContextType
+  const currstateItem = dishes?.find((ele) => ele.id === id)
+  const handleChange = (e:CheckboxChangeEvent) => {
+    const {value,checked} = e.target;
+    const payload = {sc:value,selectedSizeId:sizeId,id}
+    if(checked) dispatch({type:cartActionType.ADDSPECIALCONTENT,payload});
+    else dispatch({type:cartActionType.REMOVESPECIALCONTENT,payload});
+  }
+  
+  return (
+    <>
+    {props.desc}
+    <Divider dashed/>
+    <Checkbox.Group style={{ width: '100%' }}>
+      {currstateItem?.SpecialContents.map((ele) => {
+        return (<Checkbox value={ele} onChange={handleChange}>{`${ele.name} - ${ele.price}`}</Checkbox>)
+      })}
+    </Checkbox.Group>
+    </>
+  )
+}
+
+const IteamExtra = (props:any) => {
+  const {state} = useContext(CartContext) as CartContextType
   const {dispatch} = useContext(CartContext) as CartContextType
+  const {itm} = props;
+  const currstateItem = state.items.find((ele) => ele.id === itm.id && ele.selectedSize === itm.selectedSize)
   const incr = () => {
     dispatch({type:cartActionType.ADD,payload:itm})
   }
   const decr = () => {
-    dispatch({type:cartActionType.REMOVE,payload:itm})
+    const payload = {id:itm.id,selectedSize:itm.selectedSize}
+    dispatch({type:cartActionType.REMOVE,payload})
   }
   return (
     <Space direction="vertical" align="center">
@@ -44,9 +74,12 @@ const ItemExtra = (props:any) => {
             +
         </Button>
         </Space>
-        <Typography.Title level={4}>{`$${Number(itm.price) * itm.qty}`}</Typography.Title>
+        {currstateItem?.SpecialContents.map((e) => {
+          return <span>{`${e.name} - +$${e.price}`}</span>
+        })}
+        <Typography.Title level={4}>{`$${Number(itm.selectedSize.price) * itm.qty}`}</Typography.Title>
     </Space>
   );
 };
 
-export default CartDrawerListItem;
+export default CartDrawerListitm;

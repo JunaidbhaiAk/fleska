@@ -7,12 +7,14 @@ import useSummaryOrder from "../../hooks/useSummaryOrder";
 
 export const SummaryItem = ({ id, date }: { id: number; date: string }) => {
   const [currItem] = useSummaryOrder(id);
+  
   let total = 0;
   return (
     <>
-      {currItem?.map(({ qty, Dish }: { qty: number; Dish: Partial<Dish> }) => {
-        total += Number(Dish.price) * qty;
-        return <SummaryContent name={Dish.name} price={Dish.price} qty={qty} />;
+      {currItem?.map(({ qty, Dish,Sizes,SpecialContents }: { qty: number; Dish: Partial<Dish>,Sizes:any,SpecialContents:any }) => {
+        const scTotal = SpecialContents.reduce((curr:any,pre:any) => curr + pre.price,0);
+        total += (scTotal + Number(Sizes[0].price)) * qty;
+        return <SummaryContent name={`${Dish.name} - ${Sizes[0].size}`} price={Sizes[0].price} qty={qty} sc={SpecialContents} scTotal={scTotal}/>;
       })}
       <Divider dashed />
       <SummaryTotal total={total} date={date} />

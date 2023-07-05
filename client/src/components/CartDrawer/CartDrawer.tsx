@@ -18,7 +18,7 @@ const CartDrawer = () => {
         size="large"
         itemLayout="vertical"
         dataSource={state.items}
-        renderItem={(item: any) => <CartDrawerListItem item={item} />}
+        renderItem={(item: any,idx:number) => <CartDrawerListItem item={item} idx={idx}/>}
       />
       <Divider dashed orientation="right">{`Total $${state.price}`}</Divider>
       <CartDrawerFooter />

@@ -8,8 +8,9 @@ const fleskaClient = axios.create({
 
 
 
-export const getAllDishes = async(qry:string) => {
-    const res = await fleskaClient.get(`dishes?cat=${qry}`);
+export const getAllDishes = async({cat,men = 'all'}:{cat:string,men:string}) => {
+    // console.log(cat,men);
+    const res = await fleskaClient.get(`dishes?cat=${cat}&men=${men}`);
     if(res.status === 200) return res.data;
     else throw Error('Internal Server Error')
 }

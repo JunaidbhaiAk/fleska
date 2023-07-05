@@ -2,6 +2,18 @@ export type Category = {
   name: string;
 };
 
+export type Size = {
+  id:number;
+  size:string;
+  price:number;
+}
+
+export type SpecialContents = {
+  id:number
+  name:string;
+  price:number;
+}
+
 export type Dish = {
   desc: string;
   id: number;
@@ -9,6 +21,8 @@ export type Dish = {
   name: string;
   price: string;
   Categories: Category[];
+  Sizes:Size[]
+  SpecialContents:SpecialContents[]
 };
 
 export interface DishWithQty extends Dish {
@@ -18,22 +32,34 @@ export interface DishWithQty extends Dish {
 export type DishContextType = {
   dishes: Dish[] | undefined;
   updateDishes: (data: Dish[]) => void;
-  updateQry: (q: string) => void;
+  updateQry: (q: string,type:string) => void;
 };
 
 export enum cartActionType {
   ADD = "ADD",
   REMOVE = "REMOVE",
   EMPTY = "EMPTY",
+  ADDSPECIALCONTENT = "ADDSPECIALCONTENT",
+  REMOVESPECIALCONTENT = "REMOVESPECIALCONTENT"
+}
+
+export type customPayloadType = {
+  id:number,
+  name:string,
+  img:string,
+  desc:string,
+  selectedSize:Size,
+  SpecialContents:SpecialContents[]
+  qty:number,
 }
 
 export type cartAction = {
   type: cartActionType;
-  payload: Dish;
+  payload: any;
 };
 
 export type cartStateType = {
-  items: DishWithQty[] | [];
+  items: customPayloadType[] | [];
   price: number;
 };
 

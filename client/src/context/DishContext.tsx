@@ -10,9 +10,12 @@ export const DishContext = createContext<DishContextType | null>(
 
 const DishProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [dishes, setDishes] = useState<Dish[] | undefined>();
-  const [qry,setQry] = useState<string>('all');
+  const [qry,setQry] = useState({cat:'all',men:'all'});
   const updateDishes = (data:Dish[] | undefined) => setDishes(data);
-  const updateQry = (q:string) => setQry(q);
+  const updateQry = (q:string,type:string) => {
+    if(type === 'menu') setQry({...qry,men:q})
+    else setQry({...qry,cat:q})
+  }
   useEffect(() => {
     getAllDishes(qry).then((data: Dish[] | undefined) => updateDishes(data));
   },[qry])
