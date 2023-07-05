@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
-import { Dish } from "./dish.model.js";
+import { Dish, Size, SpecialContent } from "./dish.model.js";
 
 
 export const Order = sequelize.define('Order',{
@@ -16,6 +16,9 @@ export const Transaction = sequelize.define('Transaction',{
 
 Transaction.hasMany(Order,{foreignKey:'oid'})
 Order.belongsTo(Transaction,{foreignKey:'oid'});
+
+Order.hasMany(Size);
+Order.hasMany(SpecialContent);
 
 Dish.hasMany(Order,{foreignKey:'dishId'});
 Order.belongsTo(Dish,{foreignKey:'dishId'});

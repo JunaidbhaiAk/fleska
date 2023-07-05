@@ -1,72 +1,215 @@
 [
   {
-    "name": "Spicy Chicken Tacos",
-    "desc": "Grilled chicken seasoned with spices, served in soft tortillas with salsa, guacamole, and sour cream.",
-    "price": 9.99,
-    "Categories": [{ "name": "Dinner" }, { "name": "Launch" }],
-    "img": "https://images.unsplash.com/photo-1518830686998-b8847466b372?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1210&q=80"
+    "name": "Cheesy Bacon Burger",
+    "desc": "Juicy beef patty topped with melted cheddar cheese, crispy bacon, lettuce, tomato, and pickles.",
+    "Categories": [{"name":"Lunch"}, {"name":"Snacks"}],
+    "Menus":[{"name":"Burger"}],
+    "img": "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80",
+    "Sizes": [
+      {
+        "size": "Regular",
+        "price": 11.99
+      },
+      {
+        "size": "Large",
+        "price": 14.99
+      }
+    ],
+    "SpecialContents": [
+      {
+        "name": "Extra Cheese",
+        "price": 1.99
+      },
+      {
+        "name": "Bacon",
+        "price": 2.49
+      }
+    ]
   },
   {
-    "name": "Mediterranean Salad Bowl",
-    "desc": "A refreshing salad with mixed greens, cherry tomatoes, cucumbers, olives, feta cheese, and a tangy lemon vinaigrette.",
-    "price": 8.49,
-    "Categories": [{ "name": "Dinner" }, { "name": "Launch" }],
-    "img": "https://images.unsplash.com/photo-1523986371872-9d3ba2e2a389?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+    "name": "Veggie Supreme Pizza",
+    "desc": "A vegetarian pizza loaded with bell peppers, onions, mushrooms, black olives, tomatoes, and melted cheese.",
+    "Categories": [{"name":"Lunch"}, {"name":"Snacks"}],
+    "Menus":[{"name":"Pizza"}],
+    "img": "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Regular",
+        "price": 12.99
+      },
+      {
+        "size": "Large",
+        "price": 15.99
+      }
+    ],
+    "SpecialContents": [
+      {
+        "name": "Extra Cheese",
+        "price": 1.99
+      }
+    ]
   },
   {
-    "name": "BBQ Pulled Pork Sandwich",
-    "desc": "Slow-cooked pulled pork smothered in smoky barbecue sauce, served on a toasted bun with coleslaw on the side.",
-    "price": 10.99,
-    "Categories": [{ "name": "Dinner" }, { "name": "Launch" }],
-    "img": "https://images.unsplash.com/photo-1583541277193-842c9215c100?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    "name": "Loaded Baked Potato",
+    "desc": "A baked potato filled with melted cheese, bacon bits, sour cream, chives, and a dollop of butter.",
+    "Categories": [{"name":"Lunch"}, {"name":"Dinner"}],
+    "Menus":[{"name":"MainCourse"}],
+    "img": "https://images.unsplash.com/photo-1595955545772-0d06367c140d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Regular",
+        "price": 7.99
+      }
+    ],
+    "SpecialContents": [
+      {
+        "name": "Cheese",
+        "price": 1.49
+      },
+      {
+        "name": "Bacon",
+        "price": 1.99
+      }
+    ]
   },
   {
     "name": "Vegetarian Pad Thai",
     "desc": "Stir-fried rice noodles with tofu, bean sprouts, carrots, and peanuts, tossed in a flavorful tamarind sauce.",
-    "price": 11.49,
     "Categories": [{ "name": "Dinner" }],
-    "img": "https://images.unsplash.com/photo-1580212206172-dbea2d1b64dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    "Menus":[{"name":"MainCourse"}],
+    "img": "https://images.unsplash.com/photo-1580212206172-dbea2d1b64dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Regular",
+        "price": 12
+      }
+    ]
   },
   {
     "name": "Margherita Pizza",
     "desc": "A classic pizza topped with fresh tomatoes, mozzarella cheese, basil leaves, and a drizzle of olive oil.",
-    "price": 12.99,
     "Categories": [{ "name": "Snacks" }, { "name": "Launch" }],
-    "img": "https://images.unsplash.com/photo-1598023696416-0193a0bcd302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1236&q=80"
+    "Menus":[{"name":"Pizza"}],
+    "img": "https://images.unsplash.com/photo-1598023696416-0193a0bcd302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1236&q=80",
+    "Sizes": [
+      {
+        "size": "Regular",
+        "price": 5
+      },
+      {
+        "size": "Medium",
+        "price": 8
+      },
+      {
+        "size": "Large",
+        "price": 12
+      }
+    ],
+    "SpecialContents": [
+      {
+        "name": "Cheese Burst",
+        "price": 1.49
+      },
+      {
+        "name": "More Toppings",
+        "price": 1
+      }
+    ]
   },
   {
     "name": "Butter Chicken",
     "desc": "Grilled salmon glazed with teriyaki sauce, served on a bed of steamed rice with stir-fried vegetables.",
     "price": 13.99,
     "Categories": [{ "name": "Launch" }],
-    "img": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-  },
-  {
-    "name": "Creamy Mushroom Risotto",
-    "desc": "Arborio rice cooked with mushrooms, onions, garlic, and Parmesan cheese, creating a rich and creamy dish.",
-    "price": 9.99,
-    "Categories": [{ "name": "Launch" }],
-    "img": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1094&q=80"
+    "Menus":[{"name":"MainCourse"}],
+    "img": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Full",
+        "price": 10
+      },
+      {
+        "size": "Half",
+        "price": 5
+      }
+    ]
   },
   {
     "name": "Chicken Biryani",
     "desc": "Tender beef, black beans, rice, salsa, shredded lettuce, cheese, and a dollop of sour cream in a bowl.",
     "price": 10.99,
     "Categories": [{ "name": "Dinner" }, { "name": "Launch" }],
-    "img": "https://imgs.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1188&q=80"
+    "Menus":[{"name":"MainCourse"},{"name":"Rice"}],
+    "img": "https://imgs.unsplash.com/photo-1631515243349-e0cb75fb8d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1188&q=80",
+    "Sizes": [
+      {
+        "size": "Full",
+        "price": 20
+      },
+      {
+        "size": "Half",
+        "price": 10
+      }
+    ]
   },
   {
     "name": "Chocolate Lava Cake",
     "desc": "A decadent chocolate cake with a gooey, molten chocolate center, served with a scoop of vanilla ice cream.",
     "price": 6.99,
     "Categories": [{ "name": "Snacks" }],
-    "img": "https://imgs.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    "Menus":[{"name":"Dessert"}],
+    "img": "https://imgs.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Small",
+        "price": 5
+      },
+      {
+        "size": "Medium",
+        "price": 10
+      }
+    ]
+  },
+  {
+    "name": "Chocolate Pinaple Cake",
+    "desc": "A decadent Pinaple cake with a gooey, molten Pinaple center, served with a scoop of vanilla ice cream.",
+    "price": 6.99,
+    "Categories": [{ "name": "Snacks" }],
+    "Menus":[{"name":"Dessert"}],
+    "img": "https://imgs.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Small",
+        "price": 5
+      },
+      {
+        "size": "Medium",
+        "price": 10
+      }
+    ]
   },
   {
     "name": "Crispy Chicken Wings",
     "desc": "Golden and crispy chicken wings served with your choice of dipping sauce.",
     "price": 8.99,
     "Categories": [{ "name": "Snacks" }],
-    "img": "https://imgs.unsplash.com/photo-1627662168223-7df99068099a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    "Menus":[{"name":"MainCourse"}],
+    "img": "https://imgs.unsplash.com/photo-1627662168223-7df99068099a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    "Sizes": [
+      {
+        "size": "Normal Bowl",
+        "price": 5
+      },
+      {
+        "size": "Family Bowl",
+        "price": 10
+      }
+    ],
+    "SpecialContents": [
+      {
+        "name": "Peri Peri Sauce",
+        "price": 2
+      }
+    ]
   }
 ]

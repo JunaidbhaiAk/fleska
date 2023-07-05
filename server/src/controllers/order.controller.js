@@ -1,16 +1,17 @@
 import sequelize from "../config/db.js";
-import { Dish } from "../models/dish.model.js";
+import { Dish, Size, SpecialContent } from "../models/dish.model.js";
 import { Order, Transaction } from "../models/order.model.js";
 
 export const createOrder = async (req, res) => {
   try {
     const { cid, orderContent } = req.body;
+    // console.log(req.body)
     const transaction = await Transaction.create({ cid });
     const orderContentwithId = orderContent.map((ele) => ({
       ...ele,
       oid: transaction.id,
     }));
-    const savedOrder = await Order.bulkCreate(orderContentwithId);
+    const savedOrder = await Order.bulkCreate(orderContentwithId,{include:[Size,SpecialContent]});
     res.status(200).send(savedOrder);
   } catch (error) {
     res.status(500).send(error);
@@ -25,7 +26,7 @@ export const getOrderById = async (req, res) => {
         {
           model: Order,
           attributes: ["qty"],
-          include: [{ model: Dish, attributes: ["name", "price"] }],
+          include: [{ model: Dish, attributes: ["name"] },{ model: SpecialContent,attributes: ["name","price"] },{ model: Size,attributes: ["size","price"] }],
         },
       ],
     });

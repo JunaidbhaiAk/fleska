@@ -5,7 +5,7 @@ import dishRoutes from './routes/dish.routes.js';
 import orderRoutes from './routes/order.routes.js';
 import cors from 'cors';
 import dummyData from './dummyData.json' assert { type: "json" }
-import { Category, Dish } from './models/dish.model.js';
+import { Category, Dish, Menu, Size, SpecialContent } from './models/dish.model.js';
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -19,11 +19,9 @@ app.use(cors());
 
 (async () => {
   try {
-    await sequelize.authenticate()
-    await sequelize.sync({alter:true})
-    const check = await Dish.findByPk(1);
-    if(!check) await Dish.bulkCreate(parsedDummydata,{include:[Category]});
-    console.log("Connection has been established successfully.");
+    sequelize.authenticate();
+    sequelize.sync({alter:true})
+    await Dish.bulkCreate(parsedDummydata,{include:[Category,Size,SpecialContent,Menu]})
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }
